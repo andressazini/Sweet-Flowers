@@ -1,0 +1,25 @@
+body {
+    min-height: 100vh;
+}
+
+.card {
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.fundo {
+    background-color: rgb(192, 90, 123);
+    color: white;
+}
+
+.fundo2 {
+    background-color: rgb(72, 119, 72);
+    color: white;
+}

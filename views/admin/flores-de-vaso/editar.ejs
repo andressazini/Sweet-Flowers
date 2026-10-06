@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<main class="container py-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="bi bi-pencil"></i>
+                Editar Flor
+            </h4>
+        </div>
+        <div class="card-body">
+            <form action="/admin/flores-de-vaso/<%= flor.id %>/editar" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Nome da flor</label>
+                        <input type="text" name="nome" class="form-control" value="<%= flor.nome %>" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Duração</label>
+                        <input type="text" name="especie" class="form-control" value="<%= flor.especie %>">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Cor</label>
+                        <select name="cor" class="form-select" required>
+                            <option value="">Selecione uma cor</option>
+                            <option value="Vermelha" <%= flor.cor === 'Vermelha' ? 'selected' : '' %>>Vermelha</option>
+                            <option value="Branca" <%= flor.cor === 'Branca' ? 'selected' : '' %>>Branca</option>
+                            <option value="Rosa" <%= flor.cor === 'Rosa' ? 'selected' : '' %>>Rosa</option>
+                            <option value="Amarela" <%= flor.cor === 'Amarela' ? 'selected' : '' %>>Amarela</option>
+                            <option value="Azul" <%= flor.cor === 'Azul' ? 'selected' : '' %>>Azul</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Valor</label>
+                        <div class="input-group">
+                            <span class="input-group-text">R$</span>
+                            <input type="number" name="valor" class="form-control" step="0.01" value="<%= flor.valor %>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Estoque</label>
+                        <input type="number" name="estoque" class="form-control" value="<%= flor.estoque %>" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Imagem</label>
+                        <input type="file" name="imagem" class="form-control" accept="image/*">
+                        <small class="text-muted">Deixe em branco para manter a imagem atual</small>
+                        <input type="hidden" name="imagem_atual" value="<%= flor.imagem %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Descrição</label>
+                    <textarea name="descricao" class="form-control" rows="3"><%= flor.descricao %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Cuidados</label>
+                    <textarea name="cuidados" class="form-control" rows="3"><%= flor.cuidados %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i>
+                    Salvar
+                </button>
+                <a href="/admin/flores-de-vaso" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

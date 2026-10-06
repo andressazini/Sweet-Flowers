@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+<%- include('partials/menu') %>
+
+<main class="container py-5">
+
+    <div class="bg-white p-5 rounded shadow-sm">
+
+        <h1 class="display-6">
+            <i class="bi bi-shop"></i>
+            Admin E-commerce da Sweet Flowers
+        </h1>
+
+        <p class="lead">
+            Sistema administrativo para gerenciamento de produtos.
+        </p>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-3">
+                <div class="card fundo">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">
+                            <i class="bi bi-box-seam"></i>
+                            Buquês prontos
+                        </h5>
+                        <p class="card-text text-white">
+                            Cadastre e consulte os buquês prontos disponíveis na loja.
+                        </p>
+                        <a href="/admin/produtos" class="btn btn-light">
+                            Ver produtos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card fundo2">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">
+                            <i class="bi bi-tags"></i>
+                            Categorias
+                        </h5>
+                        <p class="card-text text-white">
+                            Cadastre e consulte as categorias de produtos existentes na Sweet Flowers.
+                        </p>
+                        <a href="/admin/categorias" class="btn btn-light">
+                            Ver categorias
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card fundo">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-flower1"></i>
+                            Flores unitárias
+                        </h5>
+                        <p class="card-text">
+                            Cadastre e consulte as flores para montagem de buquês personalizados.
+                        </p>
+                        <a href="/admin/flores" class="btn btn-light">
+                            Ver flores
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card fundo2">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-flower1"></i>
+                            Flores de vaso
+                        </h5>
+                        <p class="card-text">
+                            Cadastre e consulte as flores de vaso da Sweet Flowers.
+                        </p>
+                        <a href="/admin/flores-de-vaso" class="btn btn-light">
+                            Ver flores
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+
+        </div>
+    </div>
+
+</main>
+
+<%- include('partials/footer') %>

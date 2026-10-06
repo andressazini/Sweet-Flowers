@@ -1,0 +1,68 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<main class="container py-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="bi bi-pencil"></i>
+                Editar Produto
+            </h4>
+        </div>
+        <div class="card-body">
+            <form action="/admin/produtos/<%= produto.id %>/editar" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Nome do produto</label>
+                        <input type="text" name="nome" class="form-control" value="<%= produto.nome %>" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Categoria</label>
+                        <select name="categoria" class="form-select" required>
+                            <option value="">
+                                Selecione uma categoria
+                            </option>
+                            <% for (let i = 0; i < categorias.length; i++) { %>
+                                <option value="<%= categorias[i].nome %>" <%= categorias[i].nome === produto.categoria ? 'selected' : '' %>>
+                                    <%= categorias[i].nome %>
+                                </option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Valor</label>
+                        <div class="input-group">
+                            <span class="input-group-text">R$</span>
+                            <input type="number" name="valor" class="form-control" step="0.01" value="<%= produto.valor %>" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Estoque</label>
+                        <input type="number" name="estoque" class="form-control" value="<%= produto.estoque %>" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Imagem</label>
+                        <input type="file" name="imagem" class="form-control" accept="image/*">
+                        <small class="text-muted">Deixe em branco para manter a imagem atual</small>
+                        <input type="hidden" name="imagem_atual" value="<%= produto.imagem %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Descrição</label>
+                    <textarea name="descricao" class="form-control" rows="4"><%= produto.descricao %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i>
+                    Salvar
+                </button>
+                <a href="/admin/produtos" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
